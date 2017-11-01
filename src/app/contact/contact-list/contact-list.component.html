@@ -1,0 +1,26 @@
+<p class="ca-contact-list-title">
+  {{title}}
+</p>
+
+<mat-list>
+
+  <ca-contact-list-item *ngFor="let contact of contacts"
+                    [contact]="contact">
+  </ca-contact-list-item>
+
+</mat-list>
+
+<mat-list>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="First name" value="" [(ngModel)]="firstName">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Last name" value="" [(ngModel)]="lastName">
+  </mat-form-field>
+
+
+  <button mat-raised-button (click)="addContact()">Add</button>
+
+</mat-list>
