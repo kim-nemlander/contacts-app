@@ -8,7 +8,7 @@ export class ContactService {
 
   constructor() {
     this.contacts = [
-      new Contact(0, 'Bruce', 'Dickinson', '045123456789', 'Maiden Street 666', 'Cardiff')
+      new Contact(1, 'Bruce', 'Dickinson', '045123456789', 'Maiden Street 666', 'Cardiff')
     ];
   }
 

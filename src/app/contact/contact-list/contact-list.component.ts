@@ -44,7 +44,6 @@ export class ContactListComponent implements OnInit {
     this.city = '';
     console.log(contact);
     this.contactService.addContact(contact);
-
   }
 
 }
