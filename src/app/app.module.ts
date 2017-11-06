@@ -6,14 +6,14 @@ import {ContactService} from './contact/services/contact.service';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactListItemComponent} from './contact/contact-list-item/contact-list-item.component';
 import {RouterModule, Routes} from '@angular/router';
-import { AddContactComponent } from './contact/add-contact/add-contact.component';
+import {AddContactComponent} from './contact/add-contact/add-contact.component';
 
 const routes: Routes = [
   {
     path: 'contacts',
     component: ContactListComponent
   }, {
-  path: 'add-contact',
+    path: 'add-contact',
     component: AddContactComponent
   }
 ];

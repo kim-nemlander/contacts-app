@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContactService} from '../services/contact.service';
 import {Contact} from '../contact';
-import {ContactListComponent} from '../contact-list/contact-list.component';
 
 @Component({
   selector: 'ca-add-contact',
@@ -27,11 +26,10 @@ export class AddContactComponent implements OnInit {
     this.lastName = '';
     this.phone = '';
     this.streetAddress = '';
-    this.city = ''; }
-
-  ngOnInit() {
-    this.contacts = this.contactService.getContacts();
+    this.city = '';
   }
+
+  ngOnInit() {}
 
   addContact() {
     let contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.streetAddress, this.city);
