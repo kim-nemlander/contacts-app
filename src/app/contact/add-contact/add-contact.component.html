@@ -1,0 +1,23 @@
+<p class="ca-add-contact-title">{{titleAddContacts}}</p>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="First name" value="" [(ngModel)]="firstName">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Last name" value="" [(ngModel)]="lastName">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Phone" value="" [(ngModel)]="phone">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Street Address" value="" [(ngModel)]="streetAddress">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="City" value="" [(ngModel)]="city">
+</mat-form-field>
+
+<button mat-raised-button (click)="addContact()">Add</button>

@@ -14,5 +14,10 @@ export class AppComponent {
   showContactList() {
     this.router.navigate(['/contacts']);
   }
+
+  showAddContact() {
+    this.router.navigate(['/add-contact']);
+  }
+
 }
 
