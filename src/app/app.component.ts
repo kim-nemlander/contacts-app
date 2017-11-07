@@ -19,5 +19,9 @@ export class AppComponent {
     this.router.navigate(['/add-contact']);
   }
 
+  showEditContact() {
+    this.router.navigate(['/edit-contact']);
+  }
+
 }
 

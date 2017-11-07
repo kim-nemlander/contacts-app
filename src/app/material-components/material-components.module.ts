@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,
-  MatSidenavModule
+  MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
@@ -16,7 +16,8 @@ const materialModules = [
   MatListModule,
   MatMenuModule,
   FlexLayoutModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatToolbarModule,
 ];
 
 @NgModule({

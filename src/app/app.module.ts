@@ -7,6 +7,7 @@ import {MaterialComponentsModule} from './material-components/material-component
 import {ContactListItemComponent} from './contact/contact-list-item/contact-list-item.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AddContactComponent} from './contact/add-contact/add-contact.component';
+import {EditContactComponent} from './contact/edit-contact/edit-contact.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   }, {
     path: 'add-contact',
     component: AddContactComponent
+  }, {
+    path: 'edit-contact',
+    component: EditContactComponent
   }
 ];
 
@@ -23,7 +27,8 @@ const routes: Routes = [
     AppComponent,
     ContactListComponent,
     ContactListItemComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent,
   ],
   imports: [
     BrowserModule,

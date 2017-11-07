@@ -1,16 +1,24 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>list</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="showContactList()">
+      <mat-icon>contacts</mat-icon>
+      <span>List of Contacts</span>
+    </button>
+    <button mat-menu-item (click)="showAddContact()">
+      <mat-icon>add circle outline</mat-icon>
+      <span>Add Contact</span>
+    </button>
+    <button mat-menu-item (click)="showEditContact()">
+      <mat-icon>create</mat-icon>
+      <span>Edit Contact</span>
+    </button>
+  </mat-menu>
+Contacts App</mat-toolbar>
+
 <router-outlet></router-outlet>
 
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="example-sidenav">
-    <button mat-raised-button (click)="showContactList()">Contact List</button>
-    <button mat-raised-button (click)="showAddContact()">Add Contact</button>
-  </mat-sidenav>
 
-  <div class="example-sidenav-content">
-    <button mat-raised-button (click)="sidenav.open()">
-      Open sidenav
-    </button>
-  </div>
-
-</mat-sidenav-container>
