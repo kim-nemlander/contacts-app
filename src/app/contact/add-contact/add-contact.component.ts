@@ -21,7 +21,6 @@ export class AddContactComponent implements OnInit {
   constructor(private contactService: ContactService) {
     this.contacts = [];
     this.titleAddContacts = 'Add a New Contact';
-    this.id = 1;
     this.firstName = '';
     this.lastName = '';
     this.phone = '';
@@ -33,13 +32,13 @@ export class AddContactComponent implements OnInit {
 
   addContact() {
     let contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.streetAddress, this.city);
-    this.id++;
     this.firstName = '';
     this.lastName = '';
     this.phone = '';
     this.streetAddress = '';
     this.city = '';
     console.log(contact);
-    this.contactService.addContact(contact);
+    //this.contactService.addContact(contact);
+    this.contactService.saveContact(contact);
   }
 }

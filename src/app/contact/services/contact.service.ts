@@ -15,13 +15,37 @@ export class ContactService {
   }
 
   public findContacts(): Contact[] {
-    return this.readLocalStorageContacts();
+
+    this.contacts = this.readLocalStorageContacts();
+
+    return this.contacts;
+
+    // return this.readLocalStorageContacts();
+
   }
 
   public saveContact(contact: Contact) {
-    const contacts = this.readLocalStorageContacts();
-    contacts.push(contact);
-    this.writeLocalStorageContacts(contacts);
+
+    // Find current max id
+
+    let currentMaxId;
+    if(this.contacts.length === 0) {
+      currentMaxId = 0;
+    } else {
+      currentMaxId = Math.max(...this.contacts.map(c => c.id));
+      console.log(this.contacts.map(c => c.id));
+      console.log('maxId, 1: ' + currentMaxId);
+    }
+
+    // Assign new id, current max id +1
+
+    const newId: number = currentMaxId + 1;
+    contact.id = newId;
+
+    // Push new contact to the contacts array
+
+    this.contacts.push(contact);
+    this.writeLocalStorageContacts(this.contacts);
   }
 
   private initializeLocalStorage() {

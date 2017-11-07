@@ -23,5 +23,9 @@ export class AppComponent {
     this.router.navigate(['/edit-contact']);
   }
 
+  showEditContactField() {
+    this.router.navigate( ['/edit-contact-field']);
+  }
+
 }
 
