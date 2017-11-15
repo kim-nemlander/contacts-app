@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Contact} from '../contact';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ca-contact-list-item',
@@ -10,10 +11,14 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  showEditContactField() {
+    this.router.navigate( ['/edit-contact-field']);
   }
 
 }

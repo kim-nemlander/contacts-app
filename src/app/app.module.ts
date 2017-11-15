@@ -8,7 +8,7 @@ import {ContactListItemComponent} from './contact/contact-list-item/contact-list
 import {RouterModule, Routes} from '@angular/router';
 import {AddContactComponent} from './contact/add-contact/add-contact.component';
 import {EditContactComponent} from './contact/edit-contact/edit-contact.component';
-import { EditContactFieldComponent } from './contact/edit-contact-field/edit-contact-field.component';
+import {EditContactFieldComponent} from './contact/edit-contact-field/edit-contact-field.component';
 
 const routes: Routes = [
   {
@@ -20,6 +20,12 @@ const routes: Routes = [
   }, {
     path: 'edit-contact',
     component: EditContactComponent
+  }, {
+    path: 'edit-contact-field',
+    component: EditContactFieldComponent
+  }, {
+    path: 'edit-contact/:id',
+    component: EditContactFieldComponent
   }
 ];
 

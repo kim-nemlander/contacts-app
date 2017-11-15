@@ -9,14 +9,18 @@ import {Contact} from '../contact';
 })
 export class ContactListComponent implements OnInit {
 
-  title: string;
+  titleContactList: string;
   contacts: Contact [];
 
   constructor(private contactService: ContactService) {
-    this.title = 'List of Contacts';
+    this.titleContactList = 'List of Contacts';
   }
 
   ngOnInit() {
     this.contacts = this.contactService.findContacts();
+  }
+
+onContactSelect(contact: Contact){
+console.log(contact);
   }
 }

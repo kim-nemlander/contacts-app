@@ -4,12 +4,10 @@
 
 <mat-list>
 
-  <ca-contact-list-item *ngFor="let contact of contacts"
-                        [contact]="contact">
-  </ca-contact-list-item>
+  <div *ngFor="let contact of contacts" (click)="onContactSelect(contact)">
+
+    <ca-contact-list-item [contact]="contact">
+    </ca-contact-list-item>
+  </div>
 
 </mat-list>
-
-<button mat-raised-button (click)="showEditContactField()">
-  <mat-icon>create</mat-icon>
-</button>

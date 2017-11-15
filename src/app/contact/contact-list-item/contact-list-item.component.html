@@ -4,4 +4,7 @@
   <p mat-line>{{contact.firstName}} {{contact.lastName}}</p>
   <p mat-line>{{contact.phone}}</p>
   <p mat-line>{{contact.streetAddress}}, {{contact.city}}</p>
+  <button mat-raised-button (click)="showEditContactField()">
+    <mat-icon>create</mat-icon>
+  </button>
 </mat-list-item>

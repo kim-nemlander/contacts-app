@@ -18,10 +18,11 @@ export class EditContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
+    this.contacts = this.contactService.findContacts();
   }
 
-  showEditContactField() {
-    this.router.navigate( ['/edit-contact-field']);
+  onContactSelect(contact: Contact){
+    console.log(contact);
+    this.router.navigate(['edit-contact', contact.id]);
   }
 }

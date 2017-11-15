@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
+import * as _ from 'lodash';
 
 @Injectable()
 export class ContactService {
@@ -19,17 +20,17 @@ export class ContactService {
     this.contacts = this.readLocalStorageContacts();
 
     return this.contacts;
+  }
 
-    // return this.readLocalStorageContacts();
-
+  public findContactById(id: number): Contact {
+    const contacts = this.readLocalStorageContacts();
+    return _.find(contacts, {'id': id});
   }
 
   public saveContact(contact: Contact) {
 
-    // Find current max id
-
     let currentMaxId;
-    if(this.contacts.length === 0) {
+    if (this.contacts.length === 0) {
       currentMaxId = 0;
     } else {
       currentMaxId = Math.max(...this.contacts.map(c => c.id));
@@ -37,14 +38,20 @@ export class ContactService {
       console.log('maxId, 1: ' + currentMaxId);
     }
 
-    // Assign new id, current max id +1
-
     const newId: number = currentMaxId + 1;
     contact.id = newId;
 
-    // Push new contact to the contacts array
-
     this.contacts.push(contact);
+    this.writeLocalStorageContacts(this.contacts);
+  }
+
+  public editContact(contact: Contact) {
+    console.log(this.contacts);
+    const index = _.findIndex(this.contacts, c => c.id === contact.id);
+    console.error(index);
+    console.log(this.contacts[index]);
+    this.contacts[index] = contact;
+    console.log(this.contacts[index]);
     this.writeLocalStorageContacts(this.contacts);
   }
 
@@ -64,30 +71,5 @@ export class ContactService {
     localStorage.setItem(this.localStorageKey, data);
   }
 
-  getContacts(): Contact[] {
-    return this.contacts;
-  }
 
-  addContact(contact: Contact) {
-
-    // Find current max id
-
-    let currentMaxId;
-    if(this.contacts.length === 0) {
-      currentMaxId = 0;
-    } else {
-      currentMaxId = Math.max(...this.contacts.map(c => c.id));
-      console.log(this.contacts.map(c => c.id));
-      console.log('maxId, 1: ' + currentMaxId);
-    }
-
-    // Assign new id, current max id +1
-
-    const newId: number = currentMaxId + 1;
-    contact.id = newId;
-
-    // Push new contact to the contacts array
-
-    this.contacts.push(contact);
-  }
 }

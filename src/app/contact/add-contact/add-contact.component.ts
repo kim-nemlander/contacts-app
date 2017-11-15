@@ -30,7 +30,7 @@ export class AddContactComponent implements OnInit {
 
   ngOnInit() {}
 
-  addContact() {
+  saveContact() {
     let contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.streetAddress, this.city);
     this.firstName = '';
     this.lastName = '';
@@ -38,7 +38,6 @@ export class AddContactComponent implements OnInit {
     this.streetAddress = '';
     this.city = '';
     console.log(contact);
-    //this.contactService.addContact(contact);
     this.contactService.saveContact(contact);
   }
 }
