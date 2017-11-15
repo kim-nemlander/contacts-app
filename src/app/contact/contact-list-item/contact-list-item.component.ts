@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {Router} from '@angular/router';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-list-item',
@@ -11,14 +12,16 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private contactService: ContactService) {
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   showEditContactField() {
     this.router.navigate( ['/edit-contact-field']);
   }
-
+  editContact() {
+    this.contactService.editContact(this.contact);
+  }
 }
+

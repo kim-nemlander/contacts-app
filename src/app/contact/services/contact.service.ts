@@ -46,12 +46,15 @@ export class ContactService {
   }
 
   public editContact(contact: Contact) {
-    console.log(this.contacts);
     const index = _.findIndex(this.contacts, c => c.id === contact.id);
-    console.error(index);
-    console.log(this.contacts[index]);
     this.contacts[index] = contact;
-    console.log(this.contacts[index]);
+    this.writeLocalStorageContacts(this.contacts);
+  }
+
+  public deleteContact(contact: Contact) {
+    const index = _.findIndex(this.contacts, c => c.id === contact.id);
+    this.contacts[index] = contact;
+    _.remove(this.contacts, {'id': contact.id});
     this.writeLocalStorageContacts(this.contacts);
   }
 

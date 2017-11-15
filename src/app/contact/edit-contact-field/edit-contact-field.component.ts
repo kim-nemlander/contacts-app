@@ -45,4 +45,8 @@ export class EditContactFieldComponent implements OnInit {
     this.contactService.editContact(this.contact);
     this.location.back();
   }
+  deleteContact() {
+    this.contactService.deleteContact(this.contact);
+    this.location.back();
+  }
 }
