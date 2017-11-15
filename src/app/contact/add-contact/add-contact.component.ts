@@ -28,7 +28,8 @@ export class AddContactComponent implements OnInit {
     this.city = '';
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   saveContact() {
     let contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.streetAddress, this.city);

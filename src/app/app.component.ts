@@ -19,4 +19,3 @@ export class AppComponent {
     this.router.navigate(['/add-contact']);
   }
 }
-
