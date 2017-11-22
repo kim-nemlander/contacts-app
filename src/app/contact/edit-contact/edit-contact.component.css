@@ -1,4 +1,19 @@
-.ca-edit-contact-field-title {
+.ca-edit-contact-title {
   font-size: 30px;
   color: blue;
+  margin: 0;
+}
+
+.ca-edit-contact-subtitle {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.ca-edit-contact-mat-card {
+  width: 400px;
+  height: 530px;
+  border: solid;
+  background-color: lightgoldenrodyellow;
+  background-size: 100px;
 }

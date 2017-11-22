@@ -1,26 +1,47 @@
-<p class="ca-edit-contact-field-title">
-  {{titleEditContact}}
-</p>
+<mat-card class="ca-edit-contact-mat-card">
+  <div fxFill fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-header>
+      <mat-card-title>
+        <div fxFill fxLayout="row" fxLayoutAlign="center center">
+          <p class="ca-edit-contact-title">
+            {{titleEditContact}}</p>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <div fxFill fxLayout="row" fxLayoutAlign="center center">
+          <p class="ca-edit-contact-subtitle">{{contact.firstName}} {{contact.lastName}}</p>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxFill fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field>
+          <input matInput placeholder="First name" value="" [(ngModel)]="contact.firstName">
+        </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="First name" value="" [(ngModel)]="contact.firstName">
-</mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" value="" [(ngModel)]="contact.lastName">
+        </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Last name" value="" [(ngModel)]="contact.lastName">
-</mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Phone" value="" [(ngModel)]="contact.phone">
+        </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Phone" value="" [(ngModel)]="contact.phone">
-</mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Street Address" value="" [(ngModel)]="contact.streetAddress">
+        </mat-form-field>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Street Address" value="" [(ngModel)]="contact.streetAddress">
-</mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City" value="" [(ngModel)]="contact.city">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxFill fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button (click)="editContact()" color="accent">Edit & Save</button>
+        <button mat-raised-button (click)="deleteContact()" color="accent">Delete</button>
+      </div>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="City" value="" [(ngModel)]="contact.city">
-</mat-form-field>
-
-<button mat-raised-button (click)="editContact()">Edit & Save</button>
-<button mat-raised-button (click)="deleteContact()">Delete</button>
+    </mat-card-actions>
+  </div>
+</mat-card>
