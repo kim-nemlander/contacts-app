@@ -1,4 +1,14 @@
 .ca-add-contact-title {
-  font-size: 30px;
-  color: red;
+  font-size: 28px;
+  color: deeppink;
+  margin-bottom: 8px;
+}
+
+.ca-add-contact-mat-card {
+  margin: 5px;
+  width: 400px;
+  height: 530px;
+  border: solid;
+  background-color: lightgoldenrodyellow;
+  background-size: 100px;
 }

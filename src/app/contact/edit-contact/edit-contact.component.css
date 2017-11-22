@@ -1,16 +1,18 @@
 .ca-edit-contact-title {
-  font-size: 30px;
+  font-size: 28px;
   color: blue;
   margin: 0;
 }
 
 .ca-edit-contact-subtitle {
+  margin-top: 5px;
   margin-bottom: 10px;
   font-size: 20px;
   color: black;
 }
 
 .ca-edit-contact-mat-card {
+  margin: 5px;
   width: 400px;
   height: 530px;
   border: solid;
