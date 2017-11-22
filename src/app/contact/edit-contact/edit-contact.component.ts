@@ -3,6 +3,7 @@ import {Contact} from '../contact';
 import {ContactService} from '../services/contact.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ca-edit-contact',
@@ -22,7 +23,7 @@ export class EditContactComponent implements OnInit {
   city: string;
   isNewContact: boolean;
 
-  constructor(private contactService: ContactService, private route: ActivatedRoute, private location: Location) {
+  constructor(private contactService: ContactService, private route: ActivatedRoute, private location: Location, private router: Router) {
     this.contacts = [];
     this.titleEditContact = 'Edit Contact';
     this.firstName = '';
@@ -49,5 +50,8 @@ export class EditContactComponent implements OnInit {
   deleteContact() {
     this.contactService.deleteContact(this.contact);
     this.location.back();
+  }
+  showContactList() {
+    this.router.navigate(['/contacts']);
   }
 }

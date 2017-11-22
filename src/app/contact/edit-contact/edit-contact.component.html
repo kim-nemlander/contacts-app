@@ -3,15 +3,9 @@
     <mat-card-header>
       <mat-card-title>
         <div fxFill fxLayout="row" fxLayoutAlign="center center">
-          <p class="ca-edit-contact-title">
-            {{titleEditContact}}</p>
+          <p class="ca-edit-contact-title">{{contact.firstName}} {{contact.lastName}}</p>
         </div>
       </mat-card-title>
-      <mat-card-subtitle>
-        <div fxFill fxLayout="row" fxLayoutAlign="center center">
-          <p class="ca-edit-contact-subtitle">{{contact.firstName}} {{contact.lastName}}</p>
-        </div>
-      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <div fxFill fxLayout="column" fxLayoutAlign="center center">
@@ -39,7 +33,8 @@
     <mat-card-actions>
       <div fxFill fxLayout="row" fxLayoutAlign="center center">
         <button mat-raised-button (click)="editContact()" color="accent">Edit & Save</button>
-        <button mat-raised-button (click)="deleteContact()" color="accent">Delete</button>
+        <button mat-raised-button (click)="deleteContact()" class="ca-delete-button">Delete</button>
+        <button mat-raised-button (click)="showContactList()">Back</button>
       </div>
 
     </mat-card-actions>
