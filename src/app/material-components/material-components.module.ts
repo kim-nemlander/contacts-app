@@ -18,7 +18,8 @@ const materialModules = [
   FlexLayoutModule,
   MatSidenavModule,
   MatToolbarModule,
-  MatCardModule
+  MatCardModule,
+  MatSidenavModule
 ];
 
 @NgModule({
