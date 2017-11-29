@@ -1,9 +1,9 @@
 <p class="ca-contact-list-title">
   {{titleContactList}}
 </p>
-<mat-sidenav-container class="example-sidenav-fab-container">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="over" opened="true">
-    <div class="example-scrolling-content">
+    <div class="scrolling-content">
 <mat-list>
   <div *ngFor="let contact of contacts" (click)="onContactSelect(contact)">
     <ca-contact-list-item [contact]="contact">

@@ -8,6 +8,8 @@ import {ContactListItemComponent} from './contact/contact-list-item/contact-list
 import {RouterModule, Routes} from '@angular/router';
 import {AddContactComponent} from './contact/add-contact/add-contact.component';
 import {EditContactComponent} from './contact/edit-contact/edit-contact.component';
+import {GoogleMapsComponent} from './google-maps/google-maps.component';
+import {ConfirmDeleteComponent} from './contact/edit-contact/confirm-delete/confirm-delete.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,9 @@ const routes: Routes = [
   }, {
     path: 'edit-contact/:id',
     component: EditContactComponent
+  }, {
+    path: 'confirm-delete',
+    component: ConfirmDeleteComponent
   }
 ];
 
@@ -32,6 +37,8 @@ const routes: Routes = [
     ContactListItemComponent,
     AddContactComponent,
     EditContactComponent,
+    GoogleMapsComponent,
+    ConfirmDeleteComponent,
   ],
   imports: [
     BrowserModule,

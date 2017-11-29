@@ -4,6 +4,8 @@ import {ContactService} from '../services/contact.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {ConfirmDeleteComponent} from './confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'ca-edit-contact',
@@ -22,8 +24,10 @@ export class EditContactComponent implements OnInit {
   streetAddress: string;
   city: string;
   isNewContact: boolean;
+  editMode: boolean;
 
-  constructor(private contactService: ContactService, private route: ActivatedRoute, private location: Location, private router: Router) {
+  constructor(private contactService: ContactService, private route: ActivatedRoute, private location: Location, private router: Router,
+              public dialog: MatDialog) {
     this.contacts = [];
     this.titleEditContact = 'Edit Contact';
     this.firstName = '';
@@ -37,8 +41,12 @@ export class EditContactComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
+      this.editMode = true;
       this.contact = this.contactService.findContactById(parseInt(id, 10));
       this.isNewContact = false;
+    } else {
+      this.editMode = false;
+      this.contact.id = null;
     }
   }
 
@@ -51,7 +59,17 @@ export class EditContactComponent implements OnInit {
     this.contactService.deleteContact(this.contact);
     this.location.back();
   }
+
   showContactList() {
     this.router.navigate(['/contacts']);
   }
-}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {width: '250px'});
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.deleteContact();
+      }
+    });
+  }
+    }

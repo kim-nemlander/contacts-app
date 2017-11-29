@@ -33,7 +33,7 @@
     <mat-card-actions>
       <div fxFill fxLayout="row" fxLayoutAlign="center center">
         <button mat-raised-button (click)="editContact()" color="accent">Edit & Save</button>
-        <button mat-raised-button (click)="deleteContact()" class="ca-delete-button">Delete</button>
+        <button mat-raised-button *ngIf="editMode" (click)="openDialog()" class="ca-remove-button">Remove</button>
         <button mat-raised-button (click)="showContactList()">Back</button>
       </div>
 

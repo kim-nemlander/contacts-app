@@ -3,13 +3,13 @@
   color: mediumpurple;
 }
 
-.example-sidenav-fab-container {
+.sidenav-container {
   background-color: black;
-  width: 320px;
+  width: 300px;
   height: 500px;
 }
 
-.example-scrolling-content {
+.scrolling-content {
   background-color: black;
   overflow: auto;
 }
