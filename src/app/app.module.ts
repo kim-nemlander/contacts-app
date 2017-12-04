@@ -27,6 +27,9 @@ const routes: Routes = [
   }, {
     path: 'confirm-delete',
     component: ConfirmDeleteComponent
+  }, {
+    path: 'google-maps',
+    component: GoogleMapsComponent
   }
 ];
 
