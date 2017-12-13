@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 /webapp/.idea
 /webapp/node_modules
+/webapi/ContactsWebApi/ContactsWebApi/bin
+/webapi/ContactsWebApi/ContactsWebApi/obj
+/webapi/ContactsWebApi/.vs

@@ -25,9 +25,8 @@ namespace ContactsWebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]User user)
+        public void Post([FromBody]String value)
         {
-            Console.WriteLine(user);
         }
 
         // PUT api/values/5
