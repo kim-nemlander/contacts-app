@@ -1,0 +1,41 @@
+<mat-card class="ca-add-contact-mat-card">
+  <div fxFill fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-header>
+      <mat-card-title>
+        <div fxFill fxLayout="row" fxLayoutAlign="center center">
+          <p class="ca-add-contact-title">{{titleAddContacts}}</p>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxFill fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field>
+          <input matInput placeholder="First name" value="" [(ngModel)]="firstName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Last name" value="" [(ngModel)]="lastName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Phone" value="" [(ngModel)]="phone">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Street Address" value="" [(ngModel)]="streetAddress">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="City" value="" [(ngModel)]="city">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxFill fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button (click)="saveContact()" color="primary">Add</button>
+        <button mat-raised-button (click)="showContactList()">Back</button>
+      </div>
+
+    </mat-card-actions>
+  </div>
+</mat-card>

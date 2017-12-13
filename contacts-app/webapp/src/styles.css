@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/assets/material-icons.woff2')
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-size: 24px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: url("https://i.imgur.com/kUxa9PC.jpg");
+  background-size: cover;
+}
