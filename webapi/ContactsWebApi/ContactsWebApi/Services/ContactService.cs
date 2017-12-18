@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ContactsWebApi.Models;
 using ContactsWebApi.Repositories;
 
@@ -22,7 +21,7 @@ namespace ContactsWebApi.Services
 
         public Contact FindContactById(int id)
         {
-            throw new NotImplementedException();
+            return _contactRepository.GetById(id);
         }
     }
 }

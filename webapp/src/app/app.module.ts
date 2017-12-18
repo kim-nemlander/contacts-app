@@ -10,6 +10,8 @@ import {AddContactComponent} from './contact/add-contact/add-contact.component';
 import {EditContactComponent} from './contact/edit-contact/edit-contact.component';
 import {GoogleMapsComponent} from './google-maps/google-maps.component';
 import {ConfirmDeleteComponent} from './contact/edit-contact/confirm-delete/confirm-delete.component';
+import {ContactHttpService} from './contact/services/contact-http.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -45,11 +47,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MaterialComponentsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
-    ContactService
+    ContactService,
+    ContactHttpService
   ],
   bootstrap: [AppComponent]
 })

@@ -45,3 +45,4 @@ Thumbs.db
 /webapi/ContactsWebApi/ContactsWebApi/bin
 /webapi/ContactsWebApi/ContactsWebApi/obj
 /webapi/ContactsWebApi/.vs
+/webapp/package-lock.json

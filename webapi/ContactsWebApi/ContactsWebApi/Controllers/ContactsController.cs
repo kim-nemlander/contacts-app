@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContactsWebApi.Models;
 using ContactsWebApi.Services;
 
 namespace ContactsWebApi.Controllers
@@ -23,6 +18,13 @@ namespace ContactsWebApi.Controllers
         {
             var contacts = _contactService.FindContacts();
             return new JsonResult(contacts);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var contact = _contactService.FindContactById(id);
+            return new JsonResult(contact);
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using ContactsWebApi.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContactsWebApi.Repositories
 {
@@ -21,9 +19,9 @@ namespace ContactsWebApi.Repositories
             return _contacts;
         }
 
-        public Contact GetById()
+        public Contact GetById(int id)
         {
-            throw new NotImplementedException();
+            return _contacts.FirstOrDefault(c => c.Id == id);
         }
 
         private void Initialize()
@@ -31,7 +29,7 @@ namespace ContactsWebApi.Repositories
             _contacts = new List<Contact>
             {
                 new Contact(1, "Kimi", "Nemlander", "0123456789", "Kirkkokatu 10", "Lappeenranta"),
-                new Contact(1, "Joku", "Toinen", "9876543210", "Valtakatu 12", "Lappeenranta"),
+                new Contact(2, "Joku", "Toinen", "9876543210", "Valtakatu 12", "Lappeenranta"),
             };
         }
     }

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  endpointUrl: ''
+  endpointUrl: 'http://localhost:59019/'
 };

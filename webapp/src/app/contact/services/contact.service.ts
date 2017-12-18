@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
 import * as _ from 'lodash';
+import {ContactHttpService} from './contact-http.service';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class ContactService {
@@ -9,17 +11,17 @@ export class ContactService {
 
   private contacts: Contact[];
 
-  constructor() {
+  constructor(private contactHttpService: ContactHttpService ) {
     this.contacts = [];
     this.localStorageKey = 'ca-contacts';
     this.initializeLocalStorage();
   }
 
-  public findContacts(): Contact[] {
+  public findContacts(): Observable<Contact[]> {
 
-    this.contacts = this.readLocalStorageContacts();
-
-    return this.contacts;
+   // this.contacts = this.readLocalStorageContacts();
+   // return this.contacts;
+    return this.contactHttpService.get();
   }
 
   public findContactById(id: number): Contact {
