@@ -1,36 +1,48 @@
-﻿using ContactsWebApi.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ContactsWebApi.Config;
+using ContactsWebApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactsWebApi.Repositories
 {
     public class ContactRepository : IContactRepository
     {
-        private List<Contact> _contacts;
+        private readonly ContactsDbContext _context;
 
-        public ContactRepository()
+        public ContactRepository(ContactsDbContext context)
         {
-            _contacts = new List<Contact>();
-            Initialize();
+            _context = context;
         }
 
-        public List<Contact> GetAll()
+        public List<Contact> Get()
         {
-            return _contacts;
+            return _context.Contacts.AsNoTracking().ToList();
         }
 
-        public Contact GetById(int id)
+        public Contact Get(int id)
         {
-            return _contacts.FirstOrDefault(c => c.Id == id);
+            return _context.Contacts.AsNoTracking().FirstOrDefault(c => c.Id == id);
         }
 
-        private void Initialize()
+        public Contact Create(Contact contact)
         {
-            _contacts = new List<Contact>
-            {
-                new Contact(1, "Kimi", "Nemlander", "0123456789", "Kirkkokatu 10", "Lappeenranta"),
-                new Contact(2, "Joku", "Toinen", "9876543210", "Valtakatu 12", "Lappeenranta"),
-            };
+            _context.Contacts.Add(contact);
+            _context.SaveChanges();
+            return contact;
+        }
+
+        public void Update(Contact contact)
+        {
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var contact = Get(id);
+            _context.Contacts.Remove(contact);
+            _context.SaveChanges();
         }
     }
 }
