@@ -46,3 +46,4 @@ Thumbs.db
 /webapi/ContactsWebApi/ContactsWebApi/obj
 /webapi/ContactsWebApi/.vs
 /webapp/package-lock.json
+/webapp/dist
