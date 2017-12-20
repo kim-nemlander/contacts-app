@@ -22,7 +22,7 @@ namespace ContactsWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IContactService, ContactService>();
-            services.AddSingleton<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
 
             services.AddCors(o => o.AddPolicy("ContactsAppPolicy", builder =>
             {
