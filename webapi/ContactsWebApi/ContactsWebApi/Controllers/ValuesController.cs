@@ -23,7 +23,7 @@ namespace ContactsWebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]String value)
+        public void Post([FromBody]string value)
         {
         }
 

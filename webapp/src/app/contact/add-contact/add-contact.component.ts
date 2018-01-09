@@ -16,7 +16,7 @@ export class AddContactComponent implements OnInit {
   id: number;
   firstName: string;
   lastName: string;
-  phone: string;
+  phoneNumber: string;
   streetAddress: string;
   city: string;
 
@@ -25,7 +25,7 @@ export class AddContactComponent implements OnInit {
     this.titleAddContacts = 'Add a New Contact';
     this.firstName = '';
     this.lastName = '';
-    this.phone = '';
+    this.phoneNumber = '';
     this.streetAddress = '';
     this.city = '';
   }
@@ -34,14 +34,14 @@ export class AddContactComponent implements OnInit {
   }
 
   saveContact() {
-    let contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.streetAddress, this.city);
+    const contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phoneNumber, this.streetAddress, this.city);
     this.firstName = '';
     this.lastName = '';
-    this.phone = '';
+    this.phoneNumber = '';
     this.streetAddress = '';
     this.city = '';
     console.log(contact);
-    this.contactService.saveContact(contact);
+    this.contactService.saveContact(contact).subscribe();
     this.location.back();
   }
   showContactList() {

@@ -42,8 +42,15 @@ export class EditContactComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.editMode = true;
-      this.contact = this.contactService.findContactById(parseInt(id, 10));
       this.isNewContact = false;
+
+      // this.contact = this.contactService.findContactById(parseInt(id, 10));
+
+      this.contactService.findContactById(parseInt(id, 10)).subscribe(contact => {
+        console.log('findContactById: ' + JSON.stringify(contact));
+        this.contact = Object.assign({}, contact);
+      });
+
     } else {
       this.editMode = false;
       this.contact.id = null;
@@ -51,12 +58,13 @@ export class EditContactComponent implements OnInit {
   }
 
   editContact() {
-    this.contactService.editContact(this.contact);
+    console.log('editContact:' + JSON.stringify(this.contact));
+    this.contactService.saveContact(this.contact).subscribe();
     this.location.back();
   }
 
   deleteContact() {
-    this.contactService.deleteContact(this.contact);
+    this.contactService.deleteContact(this.contact.id).subscribe();
     this.location.back();
   }
 

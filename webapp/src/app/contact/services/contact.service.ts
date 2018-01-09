@@ -1,80 +1,75 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
-import * as _ from 'lodash';
 import {ContactHttpService} from './contact-http.service';
 import {Observable} from 'rxjs/Observable';
+import * as _ from 'lodash';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ContactService {
 
-  localStorageKey: string;
-
   private contacts: Contact[];
 
-  constructor(private contactHttpService: ContactHttpService ) {
+  constructor(private contactHttpService: ContactHttpService) {
     this.contacts = [];
-    this.localStorageKey = 'ca-contacts';
-    this.initializeLocalStorage();
   }
 
-  public findContacts(): Observable<Contact[]> {
-
-   // this.contacts = this.readLocalStorageContacts();
-   // return this.contacts;
-    return this.contactHttpService.get();
-  }
-
-  public findContactById(id: number): Contact {
-    const contacts = this.readLocalStorageContacts();
-    return _.find(contacts, {'id': id});
-  }
-
-  public saveContact(contact: Contact) {
-
-    let currentMaxId;
-    if (this.contacts.length === 0) {
-      currentMaxId = 0;
+  public findContacts(reload?: boolean): Observable<Contact[]> {
+    if (_.isEmpty(this.contacts) || reload) {
+      return this.contactHttpService.get().map((contacts) => {
+        this.contacts = contacts;
+        return contacts;
+      });
     } else {
-      currentMaxId = Math.max(...this.contacts.map(c => c.id));
-      console.log(this.contacts.map(c => c.id));
-      console.log('maxId, 1: ' + currentMaxId);
+      return Observable.of(this.contacts);
     }
+  }
 
-    const newId: number = currentMaxId + 1;
-    contact.id = newId;
+  findContactById(id: number) {
+    const cached = _.find(this.contacts, {'id': id});
+    if (cached) {
+      return Observable.of(cached);
+    } else {
+      return this.contactHttpService.getById(id).map((contact) => {
+        this.contacts.push(contact);
+        return contact;
+      });
+    }
+  }
 
+  saveContact(contact: Contact): Observable<any> {
+    if (!contact.id) {
+      return this.contactHttpService.create(contact).map((c) => {
+        this.contacts.push(c);
+      });
+    } else {
+      return this.contactHttpService.update(contact).map(() => {
+        console.log(contact);
+        //const i = _.indexOf(this.contacts, {'id': contact.id});
+
+        const i = this.contacts.findIndex(c => c.id === contact.id);
+
+        console.log(i);
+        console.log(this.contacts);
+        this.contacts[i] = contact;
+        console.log(this.contacts);
+        return contact;
+      });
+    }
+  }
+
+  /*
+  editContact(contact: Contact) {
+    const index = _.findIndex(this.contacts, c => c.id === contact.id);
+    this.contacts[index] = contact;
     this.contacts.push(contact);
-    this.writeLocalStorageContacts(this.contacts);
   }
+  */
 
-  public editContact(contact: Contact) {
-    const index = _.findIndex(this.contacts, c => c.id === contact.id);
-    this.contacts[index] = contact;
-    this.writeLocalStorageContacts(this.contacts);
+  deleteContact(id: number): Observable<any> {
+    return this.contactHttpService.remove(id).map(() => {
+      _.remove(this.contacts, {'id': id});
+    });
   }
-
-  public deleteContact(contact: Contact) {
-    const index = _.findIndex(this.contacts, c => c.id === contact.id);
-    this.contacts[index] = contact;
-    _.remove(this.contacts, {'id': contact.id});
-    this.writeLocalStorageContacts(this.contacts);
-  }
-
-  private initializeLocalStorage() {
-    if (!localStorage.getItem(this.localStorageKey)) {
-      localStorage.setItem(this.localStorageKey, JSON.stringify([]));
-    }
-  }
-
-  private readLocalStorageContacts(): Contact[] {
-    const data = localStorage.getItem(this.localStorageKey);
-    return JSON.parse(data) as Contact[];
-  }
-
-  private writeLocalStorageContacts(contacts: Contact[]) {
-    const data = JSON.stringify(contacts);
-    localStorage.setItem(this.localStorageKey, data);
-  }
-
 
 }

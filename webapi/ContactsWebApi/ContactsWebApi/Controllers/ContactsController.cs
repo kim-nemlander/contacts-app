@@ -39,7 +39,7 @@ namespace ContactsWebApi.Controllers
         public IActionResult Update(int id, [FromBody] Contact contact)
         {
             _contactService.UpdateContact(id, contact);
-            return new NoContentResult();
+            return new JsonResult(contact);
         }
 
         [HttpDelete("{id}")]

@@ -20,4 +20,24 @@ export class ContactHttpService {
     });
   }
 
+  getById(id: number): Observable<Contact> {
+    return this.http.get(this.url + '/' + id).map((response) => {
+      return response as Contact;
+    });
+  }
+
+  create(contact: Contact): Observable<Contact> {
+    return this.http.post(this.url, contact).map(contact => {
+      return contact as Contact;
+    });
+  }
+
+  update(contact: Contact): Observable<any> {
+    return this.http.put(this.url + '/' + contact.id, contact);
+  }
+
+  remove(id: number): Observable<any> {
+    return this.http.delete(this.url + '/' + id);
+  }
+
 }

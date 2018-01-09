@@ -40,6 +40,7 @@ namespace ContactsWebApi.Services
         public void DeleteContact(int id)
         {
             _contactRepository.Delete(id);
+
         }
     }
 }
