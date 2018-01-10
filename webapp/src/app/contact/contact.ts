@@ -2,7 +2,7 @@ export class Contact {
   id: number;
   firstName: string;
   lastName: string;
-  phone: string;
+  phoneNumber: string;
   streetAddress: string;
   city: string;
 
@@ -10,7 +10,7 @@ export class Contact {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.phone = phone;
+    this.phoneNumber = phone;
     this.streetAddress = streetAddress;
     this.city = city;
   }

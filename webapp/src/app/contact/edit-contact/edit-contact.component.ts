@@ -20,7 +20,7 @@ export class EditContactComponent implements OnInit {
   id: number;
   firstName: string;
   lastName: string;
-  phone: string;
+  phoneNumber: string;
   streetAddress: string;
   city: string;
   isNewContact: boolean;
@@ -32,7 +32,7 @@ export class EditContactComponent implements OnInit {
     this.titleEditContact = 'Edit Contact';
     this.firstName = '';
     this.lastName = '';
-    this.phone = '';
+    this.phoneNumber = '';
     this.streetAddress = '';
     this.city = '';
     this.isNewContact = true;
